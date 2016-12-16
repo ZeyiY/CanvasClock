@@ -1,5 +1,5 @@
 var WINDOW_WIDTH = 1024;
-var WINDOW_HEIGH = 768;
+var WINDOW_HEIGHT = 768;
 var RADIUS = 8;
 var MARGIN_TOP = 60;
 var MARGIN_LEFT = 30;
@@ -13,15 +13,15 @@ const colors = ["#33B5E5","#0099CC","#AA66CC","#9933CC","#99CC00","#669900","FFB
 window.onload = function(){
 	
 	WINDOW_WIDTH = document.body.clientWidth;
-	WINDOW_HEIGH = document.body.clientHeight;
+	WINDOW_HEIGHT = document.body.clientHeight;
 	MARGIN_LEFT = Math.round(WINDOW_WIDTH/10);
 	RADIUS = Math.round(WINDOW_WIDTH*4/5/108)-1;
-	MARGIN_TOP = Math.round(WINDOW_HEIGH/5);
+	MARGIN_TOP = Math.round(WINDOW_HEIGHT/5);
 	
 	var canvas = document.getElementById('canvas');
 	var context = canvas.getContext("2d");
 	canvas.width = WINDOW_WIDTH;
-	canvas.height = WINDOW_HEIGH;
+	canvas.height = WINDOW_HEIGHT;
 	
 	curShowTimeSeconds = getCurrentShowTimeSeconds();
 	
@@ -83,25 +83,26 @@ function updateBalls(){
 		balls[i].y += balls[i].vy;
 		balls[i].vy += balls[i].g;
 		
-		if(balls[i].y>=WINDOW_HEIGH-RADIUS){
-			balls[i].y = WINDOW_HEIGH-RADIUS;
+		if(balls[i].y>=WINDOW_HEIGHT-RADIUS){
+			balls[i].y = WINDOW_HEIGHT-RADIUS;
 			balls[i].vy = -balls[i].vy*0.75;
 		}
 	}
 	
-/*	var cnt =0;
+	var cnt =0;
 	for(var i = 0;i<balls.length;i++){
 		if(balls[i].x+RADIUS>0&&balls[i].x-RADIUS<WINDOW_WIDTH){
 			balls[cnt++] = balls[i]
 		}
 		
-		while(balls.length>Math.min(300,cnt)){
+		
+	}
+	while(balls.length>Math.min(300,cnt)){
 			balls.pop();
 		}
-	}*/
 	
 	
-	for (var i = 0; i < balls.length; i++) {
+/*	for (var i = 0; i < balls.length; i++) {
 
 		if (!(balls[i].x+RADIUS>0 && balls[i].x-RADIUS<WINDOW_WIDTH)) {
 
@@ -109,7 +110,7 @@ function updateBalls(){
 
 		}
 
-	}
+	}*/
 }
 
 
@@ -134,7 +135,7 @@ function addBalls(x,y,num){
 }
 
 function render(cxt){
-	cxt.clearRect(0,0,WINDOW_WIDTH,WINDOW_HEIGH);
+	cxt.clearRect(0,0,WINDOW_WIDTH,WINDOW_HEIGHT);
 	
 	var hours = parseInt(curShowTimeSeconds/3600);
 	var minutes = parseInt((curShowTimeSeconds-hours*3600)/60);
