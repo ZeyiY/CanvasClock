@@ -4,7 +4,7 @@ var RADIUS = 8;
 var MARGIN_TOP = 60;
 var MARGIN_LEFT = 30;
 
-const  endTime = new Date(2016,11,16,02,00,00);
+const  endTime = new Date(2016,11,16,20,00,00);
 var curShowTimeSeconds = 0;
 
 var balls =[];
@@ -72,7 +72,6 @@ function update(){
 			addBalls(MARGIN_LEFT+93*(RADIUS+1),MARGIN_TOP,parseInt(curSeconds%10))
 		}
 		curShowTimeSeconds = nextShowTimeSeconds;
-		console.log(addBalls().length)
 	}
 	
 	updateBalls();
@@ -90,7 +89,7 @@ function updateBalls(){
 		}
 	}
 	
-	var cnt =0;
+/*	var cnt =0;
 	for(var i = 0;i<balls.length;i++){
 		if(balls[i].x+RADIUS>0&&balls[i].x-RADIUS<WINDOW_WIDTH){
 			balls[cnt++] = balls[i]
@@ -99,6 +98,17 @@ function updateBalls(){
 		while(balls.length>Math.min(300,cnt)){
 			balls.pop();
 		}
+	}*/
+	
+	
+	for (var i = 0; i < balls.length; i++) {
+
+		if (!(balls[i].x+RADIUS>0 && balls[i].x-RADIUS<WINDOW_WIDTH)) {
+
+			balls.splice(i,1);
+
+		}
+
 	}
 }
 
