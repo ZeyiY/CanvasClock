@@ -5,7 +5,7 @@ var MARGIN_TOP = 60;
 var MARGIN_LEFT = 30;
 
 var sdate = new Date();
-const  endTime = new Date(sdate.getFullYear(),sdate.getMonth(),16,00,00,00);
+const  endTime = new Date(sdate.getFullYear(),sdate.getMonth(),sdate.getDate(),17,30,00);
 var curShowTimeSeconds = 0;
 
 var balls =[];
@@ -37,7 +37,7 @@ window.onload = function(){
 
 function getCurrentShowTimeSeconds(){
 	var curTime = new Date();
-	var ret = curTime-endTime;
+	var ret = endTime-curTime;
 	ret = Math.round(ret/1000);
 	return ret>=0?ret:0;
 }
