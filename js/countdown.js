@@ -5,7 +5,7 @@ var MARGIN_TOP = 60;
 var MARGIN_LEFT = 30;
 
 var sdate = new Date();
-const  endTime = new Date(sdate.getFullYear(),sdate.getMonth(),16,00,00,00);
+const  endTime = new Date(sdate.getFullYear(),sdate.getMonth(),sdate.getDate(),00,00,00);
 var curShowTimeSeconds = 0;
 
 var balls =[];
